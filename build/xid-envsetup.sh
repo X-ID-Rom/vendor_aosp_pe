@@ -75,14 +75,14 @@ function init_device()
     else
         if [[ "$target" =~ -(user|userdebug|eng)$ ]]; then
             # A buildtype was specified, assume a full device name
-            lunch $target
+            lunch xid_$target
         else
             # This is probably just the model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
 
-            lunch $target-$variant
+            lunch xid_$target-$variant
         fi
     fi
     return $?
