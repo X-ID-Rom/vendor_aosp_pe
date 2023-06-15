@@ -193,11 +193,11 @@ def update_local_manifest(repo_name, repo_target, repo_revision):
     print('Checking if %s is fetched from %s' % (repo_target, repo_name))
         
     if is_in_manifest(repo_target) == False:
-        print('Adding dependency: X-ID-Rom/%s -> %s' % (repo_name, repo_target))
+        print('Adding dependency: XID-Devices/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = {
             "path": repo_target,
             "remote": "github",
-            "name": "X-ID-Rom/%s" % repo_name,
+            "name": "XID-Devices/%s" % repo_name,
             "revision": repo_revision 
         })
         lm.append(project)
@@ -210,7 +210,7 @@ def update_local_manifest(repo_name, repo_target, repo_revision):
         f.write(raw_xml)
         f.close()
     else: 
-        print('X-ID-Rom/%s already fetched to %s' % (repo_name, repo_target))
+        print('XID-Devices/%s already fetched to %s' % (repo_name, repo_target))
 
 def fetch_dependencies(repo_path):
     print('Looking for dependencies in %s' % repo_path)
